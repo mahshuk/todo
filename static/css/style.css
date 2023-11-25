@@ -1,0 +1,268 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-weight: normal;
+    text-decoration: none;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+ol,
+ul {
+    list-style: none;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Poppins";
+    src: url("../fonts/Poppins-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+body {
+    background: linear-gradient(
+        90deg,
+        rgb(191, 199, 194) 0%,
+        rgb(218, 230, 184) 49%,
+        rgb(199, 199, 199) 100%
+    );
+}
+header {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header div.left {
+}
+header div.left h1 {
+    width: 100px;
+}
+header div.left h1 img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    height: 90px;
+    width: 90px;
+    margin-top: 10px;
+}
+header div.right {
+    display: flex;
+    align-items: center;
+}
+header div.right span {
+    margin-right: 50px;
+    font-weight: bold;
+}
+header div.right a {
+    display: block;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    color: black;
+    font-weight: 800;
+    transition: 0.3s;
+}
+header div.right a:hover {
+    background-color: #0d93bf;
+    color: #fff;
+}
+#main {
+    width: 40%;
+    margin: 0 auto;
+    /* padding-top: 50px; */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#main div.grade h2 {
+    font-weight: 800;
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #050505;
+}
+#main form {
+    margin-bottom: 50px;
+}
+/* #main form div.input_container label {
+    font-size: 25px;
+} */
+/* #create-task {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+} */
+#main div.list {
+    display: flex;
+    justify-content: space-between;
+}
+#main div.list div.subject ul {
+    margin-right: 70px;
+}
+#main div.list div.subject ul li{
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+#main div.list div.xams {
+    
+}
+#main div.list div.xams ul  {
+    display: flex;
+    
+}
+#main div.list div.xams ul li{
+    font-size: 20px;
+    margin-bottom: 7px;
+    margin-right: 20px;
+}
+#main div.list div.subject ul li a{
+    color: #000;
+}
+#main form div.submit_container input {
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: inline;
+    transition: 0.3s;
+    cursor: pointer;
+    background: transparent;
+}
+#main form div.submit_container input:hover {
+    color: #fff;
+    background:#0c92bf ;
+}
+#main form input.task {
+    padding: 10px;
+    width: 500px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background: lightgreen;
+}
+section.list {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    margin: 0 auto;
+    width: 50%;
+}
+section.list div.tasks {
+    /* width: 40%; */
+    margin-bottom: 25px;
+}
+section.list div.tasks h2 {
+    font-weight: 500;
+    margin-bottom: 5px;
+    /* margin-left: 10px; */
+}
+section.list div.tasks ul {
+    
+}
+section.list div.tasks li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+section.list div.tasks li div.left{
+}
+section.list div.tasks li div.left h3{
+    font-size: 20px;
+    margin-left: 10px;
+}
+section.list div.tasks li div.right{
+    
+}
+section.list div.tasks li div.right a{
+    font-weight: 800;
+    margin-right: 10px;
+    transition: 0.3s;
+    padding: 0 2px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    color: #000;
+    font-size: 15px;
+}
+section.list div.tasks li div.right a:hover{
+}
+section.list div.tasks li div.right a.edit:hover{
+    color: #fff;
+    background-color: blue;
+}
+section.list div.tasks li div.right a.delete:hover{
+    color: #fff;
+    background-color: red;
+}
+section.list div.tasks li div.right a.complete:hover{
+    color: #fff;
+    background-color: green;
+}
+section.list div.completed {
+}
+section.list div.completed h2 {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+section.list div.completed ul {
+    
+}
+section.list div.completed li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+section.list div.completed li div.left{
+}
+section.list div.completed li div.left h3{
+    font-size: 20px;
+    margin-left: 10px;
+}
+section.list div.completed li div.right{
+    
+}
+section.list div.completed li div.right a{
+    font-weight: 800;
+    margin-right: 10px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 0 2px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+section.list div.completed li div.right a.revise:hover{
+    color: #000;
+    background-color: yellow;
+}
+section.list div.completed li div.right a.delete:hover{
+    color: #fff;
+    background-color: red;
+}
+section.list div.completed li div.right a:hover{
+    transition: 0.3s;
+}

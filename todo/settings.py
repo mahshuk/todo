@@ -18,7 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'web',
+    'tasks',
     'users',
+    
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ WSGI_APPLICATION = 'todo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'todo',
+        'NAME': 'marksheet',
         'USER': 'postgres',
         'PASSWORD': 'talrop',
         'HOST': 'localhost',
@@ -98,4 +100,6 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = 'web:marksheet'
 

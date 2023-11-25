@@ -1,0 +1,25 @@
+section.topper {
+    display: flex;
+    justify-content: space-between;
+}
+section.topper div.right {
+    
+}
+section.topper div.right span {
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+section.topper div.right a {
+    display: block;
+    padding: 5px 25px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    color: black;
+    font-weight: 700;
+    transition: 0.3s;
+}
+section.topper div.right a:hover  {
+    background-color: #bf130d;
+    color: #fff;
+}

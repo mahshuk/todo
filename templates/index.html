@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{% static 'css/style.css' %}"
+            type="text/css"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="{% static 'images/' %}"
+        />
+        <title>{{title}}</title>
+        <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+    <body>
+        <header>
+            <div class="left">
+                <a href="{% url 'web:index' %}"
+                    ><h1>
+                        <img
+                            src="{% static 'images/image1.png' %}"
+                            alt="logo"
+                        /></h1
+                ></a>
+            </div>
+            <div class="right">
+                {% if request.user.is_authenticated%}
+                <span
+                    >{{request.user.first_name}}
+                    {{request.user.last_name}}</span
+                >
+                <a href="{% url 'users:logout' %}">Logout</a>
+                {% else %}
+                <a href="{% url 'users:login' %}">Login</a>
+                {% endif %}
+            </div>
+        </header>
+        <section id="main">
+            <div class="grade">
+                <h2>Subjects</h2>
+            </div>
+            <div class="list">
+            {% for subject in subjects %}
+                <div class="subject">
+                    <ul>
+                        
+                        <li>{{subject.name}}</li>
+                       
+                    </ul>
+                </div>
+                <div class="xams">
+                    <ul>
+                        <li>{{exam.name}}</li>
+                        
+                        <li>Exam 2</li>
+                        
+                        <li>Exam 3</li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- <div class="list">
+                <div class="subject">
+                    <ul>
+                     
+                        <li> Maths</li>
+                        
+                    </ul>
+                </div>
+                <div class="xams">
+                    <ul>
+                        <li>Exam 1</li>
+                        
+                        <li>Exam 2</li>
+                        
+                        <li>Exam 3</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list">
+                <div class="subject">
+                    <ul>
+                      
+                        <li> Hindi</li>
+                    </ul>
+                </div>
+                <div class="xams">
+                    <ul>
+                        <li>Exam 1</li>
+                        
+                        <li>Exam 2</li>
+                        
+                        <li>Exam 3</li>
+                        
+                    </ul>
+                </div>
+            </div> -->
+        </section>
+        <section class="list">
+            {% if instances %}
+                <div class="tasks">
+                    <h2>Pending Tasks</h2>
+                    {% for instance in instances %}
+                    <ul>
+                        <li>
+                            <div class="left">
+                                <h3>{{instance.add_task|truncatechars:25}}</h3>
+                            </div>
+                            <div class="right">
+                                <a class="edit" href="{% url 'users:edit_task' uuid=instance.id %}">EDIT</a>
+                                <a 
+                                    href="{% url 'users:delete_task' uuid=instance.id %}"
+                                    class="danger action-button reload delete"
+                                    data-text="Are you sure want to remove this ToDo. You can't undo this action." 
+                                    data-title="Confirm Delete!"
+                                    title="Delete!"
+                                >DELETE</a>
+                                <a class="complete" href="{% url 'users:finish_task' uuid=instance.id %}">FINISHED</a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if completed_instances %}
+                <div class="completed">
+                    <h2>Completed Tasks</h2>
+                    {% for instance in completed_instances %}
+                    <ul>
+                        <li>
+                            <div class="left">
+                                <h3>{{instance.add_task|truncatechars:25}}</h3>
+                            </div>
+                            <div class="right">
+                                <a href="{% url 'users:revise_task' uuid=instance.id %}" class="revise">REVISE</a>
+                                <a 
+                                    href="{% url 'users:delete_task' uuid=instance.id %}"
+                                    class="danger action-button reload delete"
+                                    data-text="Are you sure want to remove this post. You can't undo this action." 
+                                    data-title="Confirm Delete!"
+                                    title="Delete!"
+                                >DELETE</a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endfor %}
+                </div>
+                {% endif %}
+        </section>
+    </body>
+</html>

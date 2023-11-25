@@ -1,0 +1,58 @@
+<!-- marksheet.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/marksheet.css' %}" type="text/css" />
+    <title>Exam Marksheet</title>
+</head>
+<body> 
+    <h1>Exam Marksheet</h1>
+    <section class="topper">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Exam</th>
+                    <th>Subject</th>
+                    <th>Mark</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in marksheet %}
+                    <tr>
+                        <td>{{ task.exam.name }}</td>
+                        <td>{{ task.subject.name }}</td>
+                        <td>{{ task.add_mark }}</td>
+                        <td>{{ task.date }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No tasks found</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        {% if is_leader %}
+        <!-- Display the "Create Task" section only for leaders -->
+        <section class="create-task">
+            <h2>Create Task</h2>
+            <!-- Your form goes here -->
+        </section>
+        {% endif %}
+    
+
+        <div class="right">
+            {% if request.user.is_authenticated %}
+                <span>{{ request.user.first_name }} {{ request.user.last_name }}</span>
+                <a href="{% url 'users:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'users:login' %}">Login</a>
+            {% endif %}
+        </div>
+    </section>
+</body>
+</html>
